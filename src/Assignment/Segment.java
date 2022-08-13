@@ -8,7 +8,7 @@ public class Segment {
     public static void main(String[] args) throws InterruptedException, IllegalAccessException {
 
         //myInput(1,0,1,1,1,0,1);
-        inputValue("0110110");
+        inputValue("01101101");
         display();
 
     }
@@ -75,6 +75,25 @@ public class Segment {
 
     }
 
+    static void  fillAll(){
+        fill[0][0] = 1;
+        fill[0][1] = 1;
+        fill[0][2] = 1;
+        fill[0][3] = 1;
+        fill[1][3] = 1;
+        fill[2][3] = 1;
+        fill[3][3] = 1;
+        fill[4][3] = 1;
+        fill[4][0] = 1;
+        fill[4][1] = 1;
+        fill[4][2] = 1;
+        fill[2][0] = 1;
+        fill[3][0] = 1;
+        fill[1][0] = 1;
+        fill[2][1] = 1;
+        fill[2][2] = 1;
+    }
+
     static void display() throws InterruptedException {
         for (int[] i : fill) {
             for (int j : i) {
@@ -91,8 +110,8 @@ public class Segment {
 
     static void inputValue(String value) throws IllegalAccessException, InterruptedException {
 
-        if(value.length() > 8){
-            value = value.substring(0, 8);
+        if(value.length() > 9){
+            value = value.substring(0, 9);
         }
 
         char[] array = value.toCharArray();
@@ -103,8 +122,9 @@ public class Segment {
         }
 
         for (int i = 0; i < value.length(); i++){
-            if(value.charAt(i) == '1'){
+            if(value.charAt(i) == '1' && value.charAt(7) == '1' ){
                 switch (i){
+
                     case 0 -> fillA();
                     case 1 -> fillB();
                     case 2 -> fillC();

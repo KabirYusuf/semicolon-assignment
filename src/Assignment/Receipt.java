@@ -19,5 +19,7 @@ public class Receipt {
         System.out.println();
         System.out.println();
     }
+
+
 }
 

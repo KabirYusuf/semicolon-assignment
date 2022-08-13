@@ -1,14 +1,12 @@
 package Assignment;
 
-import com.google.common.base.Objects;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Scanner;
+
+import java.util.*;
 
 public class ReceiptTest {
     public static void main(String[] args) {
+        getTime();
         Scanner input = new Scanner(System.in);
         String customerName;
         String itemBought;
@@ -62,7 +60,7 @@ public class ReceiptTest {
         }
 
 
-        while ((Objects.equal(moreItem, "Yes")) || (Objects.equal(moreItem,"yes")));
+        while ((Objects.equals(moreItem, "Yes")) || (Objects.equals(moreItem,"yes")));
 
         if(moreItem.equals("No") || moreItem.equals("no") || moreItem.equals("NO")){
             System.out.println();
@@ -216,8 +214,41 @@ public class ReceiptTest {
             }
         }
 
-
-
-
     }
+
+    public static long getCurrentTime(){
+        return System.currentTimeMillis();
+    }
+    public static long getTotalSeconds(){
+        long totalSeconds = getCurrentTime() /1000;
+        return totalSeconds;
+    }
+    public static long getCurrentSeconds(){
+        long currentSeconds = getTotalSeconds() % 60;
+        return currentSeconds;
+    }
+    public static long getTotalMinutes(){
+        long totalMinutes = getTotalSeconds() / 60;
+        return totalMinutes;
+    }
+    public static long getCurrentMinutes(){
+        long currentMinutes = getTotalMinutes() % 60;
+        return currentMinutes;
+    }
+    public static long getTotalHour(){
+        long totalHour = getTotalMinutes() / 60;
+        return totalHour;
+    }
+    public static long getCurrentHour(){
+        long currentHour = getTotalHour() % 24;
+        if(currentHour > 23){
+            currentHour = 0;
+        }
+        return currentHour;
+    }
+    public static void getTime(){
+        System.out.printf("%d:%2d:%2d", getCurrentHour() + 1,getCurrentMinutes(), getCurrentSeconds());
+    }
+
+
 }
