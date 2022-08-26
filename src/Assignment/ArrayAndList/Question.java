@@ -66,4 +66,19 @@ public class Question {
         }
         return false;
     }
+
+    public static void alternative(String[] array1,String[] array2){
+        String [] result = new String[array1.length + array2.length];
+        int count = 0;
+
+        for (int j = 0; j < array2.length; j++) {
+            result[count] = array2[j];
+            count++;
+            result[count] = array1[j];
+            count++;
+        }
+
+
+        System.out.println(Arrays.toString(result));
+    }
 }

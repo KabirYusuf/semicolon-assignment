@@ -1,2 +1,4 @@
-package Assignment.ArrayAndList;public class Question1 {
+package Assignment.ArrayAndList;
+
+public class Question1 {
 }

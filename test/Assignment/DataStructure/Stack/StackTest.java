@@ -50,6 +50,7 @@ class StackTest {
     @Test
     public void testToShowThatPopMethodReducesTheElementsSizeByOne(){
         stack.pop();
+        stack.pop();
     }
 
     @Test

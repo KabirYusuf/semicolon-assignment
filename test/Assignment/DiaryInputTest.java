@@ -13,7 +13,7 @@ public class DiaryInputTest {
 
     @BeforeEach
     void setUp(){
-      diary =  new DiaryInput("My life","i love my life");
+//      diary =  new DiaryInput();
     }
 
     @Test

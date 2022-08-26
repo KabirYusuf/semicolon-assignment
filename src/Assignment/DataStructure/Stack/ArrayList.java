@@ -1,52 +1,52 @@
 package Assignment.DataStructure.Stack;
 
 
+import java.util.Objects;
 
 public class ArrayList implements List{
 
-    java.util.ArrayList<String> listElements = new java.util.ArrayList<>();
+    //java.util.ArrayList<String> listElements = new java.util.ArrayList<>();
+    private String[] elements = new String[5];
     boolean isEmpty = true;
-
+    private int count;
 
     @Override
     public void add(String item) {
-        listElements.add(item);
         isEmpty = false;
+        elements[count] = item;
+        count++;
 
     }
 
     @Override
     public void remove(int id) {
-        listElements.remove(1);
-
+        elements[id] = null;
+        count --;
     }
 
     @Override
     public void remove(String item) {
-        listElements.remove(item);
 
     }
 
     @Override
     public String get(int id) {
-        return listElements.get(id);
-
+        return elements[id];
     }
 
     @Override
-    public void add(String element, int id) {
-        listElements.add(id,element);
-        System.out.println(listElements);
+    public void add(String item, int id) {
+
     }
 
     @Override
     public void clear() {
-        listElements.clear();
+
     }
 
     @Override
     public int size() {
-        return listElements.size();
+        return count;
     }
 
     @Override
@@ -56,8 +56,8 @@ public class ArrayList implements List{
 
     @Override
     public boolean contains(String anotherItem) {
-        for(String contains:listElements){
-            if(listElements.contains(anotherItem)){
+        for (int i = 0; i < elements.length; i++) {
+            if(Objects.equals(elements[i], anotherItem)){
                 return true;
             }
         }

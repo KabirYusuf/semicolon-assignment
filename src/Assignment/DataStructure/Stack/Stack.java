@@ -36,8 +36,6 @@ public class Stack extends Vector{
 
         String[] newElements = Arrays.copyOf(elements, elements.length - 1);
         System.out.println(Arrays.toString(newElements));
-
-
     }
 
     @Override

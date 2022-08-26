@@ -12,87 +12,58 @@ class ArrayListTest {
     void setUp(){
         list = new ArrayList();
     }
-
     @Test
-    public void testThatElementsCanBeAddedToArrayList(){
-        list.add("Book");
-        list.add("Book");
-        list.add("Book");
-        list.add("Book");
-    }
-
-    @Test
-    public void testToGetElementByIndexAfterAddingItems(){
-        list.add("Book");
-        list.add("spoon");
-        list.add("shoe");
-        list.add("pen");
-
-        assertEquals("shoe",list.get(2));
-    }
-
-    @Test
-    public void testToShowThatListIsEmptyWhenNoItemIsAdded(){
+    public void newListIsEmptyTest(){
+        list = new ArrayList();
         assertTrue(list.isEmpty());
     }
-
     @Test
-    public void testToShowThatListIsNotEmptyItemIsAdded(){
-        list.add("Book");
+    public void addItemListIsEmptyTest(){
+        list = new ArrayList();
+        list.add("G-String");
         assertFalse(list.isEmpty());
     }
-
     @Test
-    public void testThatListDoesNotContainElementThatIsNotAddedToIt(){
-        list.add("Book");
-        assertFalse(list.contains("pen"));
+    public void addItemIsNotEmpty_SizeIsOneTest(){
+        list = new ArrayList();
+        list.add("G-String");
+        assertFalse(list.isEmpty());
+        assertEquals(1,list.size());
+
+
+
     }
-
     @Test
-    public void testThatListContainsElementsAddedToIt(){
-        list.add("Book");
-        assertTrue(list.contains("Book"));
+    public void addItemGetByIndexTest(){
+        list.add("A-String");
+        String savedItem = list.get(0);
+        assertEquals("A-String", savedItem);
+
     }
-
     @Test
-    public void testToGetTheSizeOfList(){
-        list.add("Laptop");
-        list.add("Book");
-        assertEquals(2,list.size());
+    public void addXYGetXY(){
+        list.add("A-String");
+        list.add("G-String");
+        assertEquals("A-String",list.get(0));
+        assertEquals("G-String",list.get(1));
     }
-
     @Test
-    public void testToShowThatXYIsAddedToList_SizeOfListIsZeroWhenListIsCleared(){
-        list.add("Laptop");
-        list.add("Book");
-        list.clear();
-        assertEquals(0,list.size());
-    }
-
-    @Test
-    public void testToAddAnElementToAnIndexWhereAnElementAlreadyExists(){
-        list.add("Laptop");
-        list.add("Book");
-        list.add("Pen",1);
-        assertEquals("Pen",list.get(1));
-    }
-
-    @Test
-    public void testToRemoveElementAtASpecifiedIndex(){
-        list.add("Laptop");
-        list.add("Book");
-        list.add("Bread");
+    public void addXYremoveYSizeIsOneTest(){
+        list.add("A string");
+        list.add("G string");
         list.remove(1);
-        assertEquals("Bread",list.get(1));
+        assertEquals(1,list.size());
+
     }
 
     @Test
-    public void testToRemoveFirstElementExistingInListHavingSameNameWithTheSpecifiedElement(){
-        list.add("Laptop");
-        list.add("Book");
-        list.add("Bread");
-        list.remove("Laptop");
-        assertEquals("Book",list.get(0));
+    public void addXYremoveYFindByIndexIsNullTest(){
+        list.add("A string");
+        list.add("G string");
+        list.remove(1);
+        assertEquals(1,list.size());
+        String deleteItem = list.get(1);
+        assertNull(deleteItem);
     }
 
 }
